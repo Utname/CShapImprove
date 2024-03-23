@@ -1,0 +1,8 @@
+C:\ASP.NET CORE\CShapImprove\bin\Debug\CShapImprove.exe.config
+C:\ASP.NET CORE\CShapImprove\bin\Debug\CShapImprove.exe
+C:\ASP.NET CORE\CShapImprove\bin\Debug\CShapImprove.pdb
+C:\ASP.NET CORE\CShapImprove\obj\Debug\CShapImprove.csproj.AssemblyReference.cache
+C:\ASP.NET CORE\CShapImprove\obj\Debug\CShapImprove.csproj.SuggestedBindingRedirects.cache
+C:\ASP.NET CORE\CShapImprove\obj\Debug\CShapImprove.csproj.CoreCompileInputs.cache
+C:\ASP.NET CORE\CShapImprove\obj\Debug\CShapImprove.exe
+C:\ASP.NET CORE\CShapImprove\obj\Debug\CShapImprove.pdb
