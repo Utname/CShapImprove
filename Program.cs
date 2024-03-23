@@ -12,10 +12,10 @@ namespace CShapImprove
     {
         static void Main(string[] args)
         {
-            int n = inputLengthArray();
-            int[] arr = inputArray(n);
-            arr = changArrayMinMax(arr);
-            displayArray(arr,n);
+            //int n = inputLengthArray();
+            //int[] arr = inputArray(n);
+            //arr = changArrayMinMax(arr);
+            //displayArray(arr,n);
             Console.ReadKey();
         }
 
