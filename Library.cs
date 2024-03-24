@@ -74,13 +74,13 @@ namespace CShapImprove
 
         public void memberBorrowBook()
         {
-            Member member = new Member("01", "NguyenVanut");
+            Member member = new Member("m01", "NguyenVanut");
             List<bookBorrow> listBorrowBooks = new List<bookBorrow>();
-            listBorrowBooks.Add(new bookBorrow("b01", 2));
-            listBorrowBooks.Add(new bookBorrow("b02",3));
+            listBorrowBooks.Add(new bookBorrow("01", 2));
+            listBorrowBooks.Add(new bookBorrow("02",3));
             listBorrowBooks.ForEach(q =>
             {
-                member.borrowBook(q);
+                member.borrowBook(q,books);
             });
         }
 

@@ -28,20 +28,31 @@ namespace CShapImprove
         public void displayInfo()
         {
             Console.WriteLine($"id:{Id} - name:{Name}");
-           // printListBook(this.bookBorrows);
+            printListBookNew(this.bookBorrows);
         }
 
-       
-
-        public void borrowBook(bookBorrow bookBorrow)
+        public void printListBookNew(List<Book> bookBorrows)
         {
-            
+            Console.WriteLine("---List book to search---");
+            foreach (Book book in bookBorrows)
+            {
+                book.displayInfoBook();
+            }
+        }
+
+        public void borrowBook(bookBorrow bookBorrow,List<Book> list_book)
+        {
+            if(bookBorrows == null)
+            {
+                books = list_book;
+            }
             var book = books.FirstOrDefault(q=>q.Isbn == bookBorrow.Isbn);
             var checkQuantity = checkQuantityBook(book.Quantity, bookBorrow.quantity);
             if (!checkQuantity)
             {
                 book.Quantity = caculateBookBorrow(book.Quantity, bookBorrow.quantity);
                 Book bookOfUserBorrow = new Book(book.Title, book.Author, bookBorrow.quantity, book.Isbn, book.AvailableQuantity);
+                bookBorrows = new List<Book> {};
                 bookBorrows.Add(bookOfUserBorrow);
             }
             displayInfo();

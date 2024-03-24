@@ -46,7 +46,6 @@
     <Compile Include="Book.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="newCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Toturial.cs" />

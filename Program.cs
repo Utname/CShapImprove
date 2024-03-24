@@ -12,10 +12,17 @@ namespace CShapImprove
     {
         static void Main(string[] args)
         {
-            //int n = inputLengthArray();
-            //int[] arr = inputArray(n);
-            //arr = changArrayMinMax(arr);
-            //displayArray(arr,n);
+            Library library = new Library();
+            library.AddBook(new Book("Sach giao khoa", "Nguyen Van Ut", 20, "01", 20));
+            library.AddBook(new Book("Sach giao khoa 1", "Nguyen Van Ut", 40, "02", 40));
+            library.AddBook(new Book("Sach giao khoa 2", "Nguyen Van Ut", 40, "03", 40));
+            library.AddBook(new Book("Sach giao khoa 3", "Nguyen Van Ut", 40, "04", 40));
+            library.RemoveBook("03");
+            library.search("01");
+            Console.WriteLine("List book member borrow!!!");
+            library.memberBorrowBook();
+            Console.WriteLine("List book affter member borrow!!!");
+            library.printListBook();
             Console.ReadKey();
         }
 
@@ -35,17 +42,7 @@ namespace CShapImprove
         }
 
 
-        //Library library = new Library();
-        //library.AddBook(new Book("Sach giao khoa", "Nguyen Van Ut", 20, "01", 20));
-        //    library.AddBook(new Book("Sach giao khoa 1", "Nguyen Van Ut", 40, "02", 40));
-        //    library.AddBook(new Book("Sach giao khoa 2", "Nguyen Van Ut", 40, "03", 40));
-        //    library.AddBook(new Book("Sach giao khoa 3", "Nguyen Van Ut", 40, "04", 40));
-        //    library.RemoveBook("03");
-        //    library.search("01");
-        //    Console.WriteLine("List book member borrow!!!");
-        //    library.memberBorrowBook();
-        //    Console.WriteLine("List book affter member borrow!!!");
-        //    library.printListBook();
+      
         
             
         static int[] sortArray(int[] arr)
