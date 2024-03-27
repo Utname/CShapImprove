@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CShapImprove
 {
-    internal class SavingsAccount : Account,AccountLimitInit
+    internal class BusinessAccount : Account, AccountLimitInit
     {
-        
-        private  double withdrawalLimit;
+        private double withdrawalLimit;
 
-        public  double WithdrawalLimit
+        public double WithdrawalLimit
         {
-            get { return withdrawalLimit; } set { withdrawalLimit = Balance; }
+            get { return withdrawalLimit; }
+            set { withdrawalLimit = 100000000; }
         }
 
         private double depositLimit;
@@ -23,7 +23,7 @@ namespace CShapImprove
             set { depositLimit = 1000000; }
         }
 
-        public SavingsAccount(string AccountName,string AccountHolderName,double Balance) : base(AccountName, AccountHolderName, Balance)
+        public BusinessAccount(string AccountName, string AccountHolderName, double Balance) : base(AccountName, AccountHolderName, Balance)
         {
             this.Balance = Balance;
             this.AccountName = AccountName;
@@ -39,17 +39,16 @@ namespace CShapImprove
             }
             base.Depoist(moneyDepoist);
         }
-       
+
 
         public override void WithdrawPerAccount(double moneyWidthdraw)
         {
-            if (Balance < moneyWidthdraw)
+            if (Balance < moneyWidthdraw || moneyWidthdraw > WithdrawalLimit)
             {
                 Console.WriteLine("moneyWidthdraw must lower " + withdrawalLimit);
                 return;
             }
             base.Withdraw(moneyWidthdraw);
         }
-
     }
 }

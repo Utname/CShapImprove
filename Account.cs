@@ -35,8 +35,8 @@ namespace CShapImprove
         }
 
 
-        public abstract void DepoistPerAccount();
-        public abstract void WithdrawPerAccount();
+        public abstract void DepoistPerAccount(double moneyDepoist);
+        public abstract void WithdrawPerAccount(double moneyWidthdraw);
 
         public void displayInfo()
         {

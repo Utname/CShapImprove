@@ -8,16 +8,26 @@ using System.Threading.Tasks;
 
 namespace CShapImprove
 {
+   
     internal class Program
     {
         static void Main(string[] args)
         {
-            int[] array = { 1, 2, 3, 4 };
+            //Khai bao list account
+            BusinessAccount businessAccount = new BusinessAccount("Xelex", "01", 0);
+            SavingsAccount savingsAccount = new SavingsAccount("Nguyen Van Ut", "02", 0);
+            CheckingAccount checkingAccount = new CheckingAccount("Xelex", "03", 0);
+            //Thuc hien nap tien cho tung tai khoan
+            savingsAccount.DepoistPerAccount(50000);
+            businessAccount.DepoistPerAccount(50000000);
+            checkingAccount.DepoistPerAccount(500000);
+            //Doanh nghiep thuc hien rut tien
+            businessAccount.WithdrawPerAccount(4000000);
 
-            Console.WriteLine("Cac mang cua phan tu ban dau:");
-            ListSubArrays(array);
             Console.ReadKey();
         }
+
+        
         static void ListSubArrays(int[] arr)
         {
             int n = arr.Length;
