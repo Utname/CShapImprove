@@ -12,20 +12,24 @@ namespace CShapImprove
     {
         static void Main(string[] args)
         {
-            Library library = new Library();
-            library.AddBook(new Book("Sach giao khoa", "Nguyen Van Ut", 20, "01", 20));
-            library.AddBook(new Book("Sach giao khoa 1", "Nguyen Van Ut", 40, "02", 40));
-            library.AddBook(new Book("Sach giao khoa 2", "Nguyen Van Ut", 40, "03", 40));
-            library.AddBook(new Book("Sach giao khoa 3", "Nguyen Van Ut", 40, "04", 40));
-            library.RemoveBook("03");
-            library.search("01");
-            Console.WriteLine("List book member borrow!!!");
-            library.memberBorrowBook();
-            Console.WriteLine("List book affter member borrow!!!");
-            library.printListBook();
+            int[] array = { 1, 2, 3, 4 };
+
+            Console.WriteLine("Cac mang cua phan tu ban dau:");
+            ListSubArrays(array);
             Console.ReadKey();
         }
-
+        static void ListSubArrays(int[] arr)
+        {
+            int n = arr.Length;
+            for(int start = 0;start < n; start++)
+                for(int end = start; end < n; end++)
+                { 
+                    Console.Write("[");
+                    for(int i = start;i<=end;i++)
+                        Console.Write(arr[i]+",");
+                    Console.WriteLine("]");
+                }
+        }
         static int[] changArrayMinMax(int[] arr)
         {
             int max = arr[0];
@@ -40,11 +44,6 @@ namespace CShapImprove
             Swap(ref arr[indexMax], ref arr[indexMin]);
             return arr;
         }
-
-
-      
-        
-            
         static int[] sortArray(int[] arr)
         {
             int j = arr.Length,i = 0;
