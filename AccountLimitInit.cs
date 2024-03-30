@@ -8,7 +8,7 @@ namespace CShapImprove
 {
      interface AccountLimitInit
     {
-        double WithdrawalLimit { get; set; }
-        double DepositLimit { get; set; }
+        double WithdrawalLimit { get;  }
+        double DepositLimit { get; }
     }
 }

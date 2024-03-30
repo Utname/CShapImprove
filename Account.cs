@@ -25,13 +25,13 @@ namespace CShapImprove
         public void Depoist(double amount)
         {
             Balance += amount;
-            Console.WriteLine($"You  depoist {Balance} succesfully!!!");
+            Console.WriteLine($"You  depoist {amount} succesfully!!!");
         }
 
         public void Withdraw(double amount)
         {
             Balance -= amount;
-            Console.WriteLine($"You  withdraw {Balance} succesfully!!!");
+            Console.WriteLine($"You  withdraw {amount} succesfully!!!");
         }
 
 
@@ -43,11 +43,7 @@ namespace CShapImprove
             Console.WriteLine($"AccountName:{AccountName} - AccountHolderName:{AccountHolderName} - Balance:{Balance}");
         }
 
-        public void displayHistory(double balanceFluctuations)
-        {
-            balanceFluctuations = balanceFluctuations < 0 ? -balanceFluctuations : balanceFluctuations;
-            Console.WriteLine($"AccountName:{AccountName} - AccountHolderName:{AccountHolderName} - Balance:{Balance} - balance fluctuations :{balanceFluctuations}");
-        }
+       
 
     }
 }

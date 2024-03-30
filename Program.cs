@@ -13,18 +13,68 @@ namespace CShapImprove
     {
         static void Main(string[] args)
         {
-            //Khai bao list account
-            BusinessAccount businessAccount = new BusinessAccount("Xelex", "01", 0);
-            SavingsAccount savingsAccount = new SavingsAccount("Nguyen Van Ut", "02", 0);
-            CheckingAccount checkingAccount = new CheckingAccount("Xelex", "03", 0);
-            //Thuc hien nap tien cho tung tai khoan
-            savingsAccount.DepoistPerAccount(50000);
-            businessAccount.DepoistPerAccount(50000000);
-            checkingAccount.DepoistPerAccount(500000);
-            //Doanh nghiep thuc hien rut tien
-            businessAccount.WithdrawPerAccount(4000000);
+            int[] arr = { 1,2,3,9,8,7,6,5,4 };
+
+            List<List<int>> subArrays = getSubArray(arr);
+            Console.WriteLine("Cac mang co do dai lon hon 2");
+            foreach(var sub in subArrays)
+            {
+               
+                    Console.WriteLine(string.Join(", ", sub));
+            }
+            //Console.WriteLine("==========================================================================");
+
+            ////Khai bao list account
+            //BusinessAccount businessAccount = new BusinessAccount("Xelex", "01", 0);
+            //businessAccount.DepoistPerAccount(50000000);
+            //businessAccount.WithdrawPerAccount(4000000);
+            //businessAccount.displayInfo();
+            //businessAccount.displayListHistory();
+
+            //Console.WriteLine("==========================================================================");
+            ////Thuc hien nap tien cho tung tai khoan 1
+            //SavingsAccount savingsAccount = new SavingsAccount("Nguyen Van Ut", "02", 0);
+            //savingsAccount.DepoistPerAccount(30000);
+            //savingsAccount.DepoistPerAccount(100000);
+            //savingsAccount.WithdrawPerAccount(70000);
+            //savingsAccount.displayInfo();
+            //savingsAccount.displayListHistory();
+            //Console.WriteLine("==========================================================================");
+
+
+            //CheckingAccount checkingAccount = new CheckingAccount("Xelex", "03", 0);
+            //checkingAccount.DepoistPerAccount(500000);
+            //checkingAccount.displayInfo();
+            //checkingAccount.displayListHistory();
+            //Console.WriteLine("==========================================================================");
+
 
             Console.ReadKey();
+        }
+
+        static List<List<int>> getSubArray(int[] arr)
+        {
+            List<List<int>> subArrays = new List<List<int>>();
+            int n = arr.Length;
+            for(int i =0;i< n; i++)
+                for(int j = i;j<n;j++)
+                {
+                    bool isIncrease = true;
+                    List<int> subArray = new List<int>();
+                    for(int x = i; x < j; x++)
+                    {
+                        subArray.Add(arr[x]);
+                        if(x > i && arr[x] <= arr[x - 1])
+                        {
+                            isIncrease = false;
+                        }
+                    }
+                    if(subArray.Count() > 2 && isIncrease == true)
+                    {
+                        subArrays.Add(subArray);
+                    }
+                }
+            return subArrays;
         }
 
         

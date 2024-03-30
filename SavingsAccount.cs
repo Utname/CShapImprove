@@ -8,47 +8,56 @@ namespace CShapImprove
 {
     internal class SavingsAccount : Account,AccountLimitInit
     {
-        
-        private  double withdrawalLimit;
 
-        public  double WithdrawalLimit
-        {
-            get { return withdrawalLimit; } set { withdrawalLimit = Balance; }
-        }
+        public double WithdrawalLimit { get; }
+        public double DepositLimit { get; }
+        private List<HistoryAccount> historyAccounts = new List<HistoryAccount>();
 
-        private double depositLimit;
-        public double DepositLimit
-        {
-            get { return depositLimit; }
-            set { depositLimit = 1000000; }
-        }
-
-        public SavingsAccount(string AccountName,string AccountHolderName,double Balance) : base(AccountName, AccountHolderName, Balance)
+        public SavingsAccount(string AccountName, string AccountHolderName, double Balance) : base(AccountName, AccountHolderName, Balance)
         {
             this.Balance = Balance;
             this.AccountName = AccountName;
             this.AccountHolderName = AccountHolderName;
+            //100 000 000
+            WithdrawalLimit = 10000000;
+            DepositLimit = 0;
         }
 
-        public override void DepoistPerAccount(double moneyDepoist)
+      
+          public override void DepoistPerAccount(double moneyDepoist)
         {
-            if (WithdrawalLimit > moneyDepoist)
+            if (DepositLimit > moneyDepoist)
             {
-                Console.WriteLine("moneyDepoist must more " + withdrawalLimit);
+                Console.WriteLine("moneyDepoist must more " + moneyDepoist);
                 return;
             }
             base.Depoist(moneyDepoist);
+            addListHistory(moneyDepoist);
         }
-       
+
 
         public override void WithdrawPerAccount(double moneyWidthdraw)
         {
-            if (Balance < moneyWidthdraw)
+            if (Balance < moneyWidthdraw || moneyWidthdraw > WithdrawalLimit)
             {
-                Console.WriteLine("moneyWidthdraw must lower " + withdrawalLimit);
+                Console.WriteLine("moneyWidthdraw must lower " + moneyWidthdraw);
                 return;
             }
             base.Withdraw(moneyWidthdraw);
+            addListHistory(-moneyWidthdraw);
+        }
+        private void addListHistory(double moneyChange)
+        {
+            historyAccounts.Add(new HistoryAccount(AccountName, AccountHolderName, Balance, moneyChange));
+        }
+
+        public void displayListHistory()
+        {
+            Console.WriteLine("List hisotry Account Saving Account");
+            foreach (HistoryAccount account in historyAccounts)
+            {
+                account.displayHistory();
+            }
         }
 
     }
